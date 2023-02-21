@@ -24,13 +24,16 @@ import {
   filterProductsByPrice1600to2500,
   filterProductsByPrice3000,
   filterProductsByPrice1000to1599,
+  
 } from "../features/filterSlice";
 import { add } from "../features/cartSlice";
 import Rating from "@mui/material/Rating";
 import { RxCross2 } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
 // import{FcBusinessman} from 'react-icons/fi'
 
 const Shop = () => {
+  const navigate = useNavigate()
   const { filtered, minValue, maxValue } = useSelector((state) => state.filter);
   const fullFiltered = filtered.filter(
     (product) => product.price >= minValue && product.price <= maxValue
@@ -77,7 +80,7 @@ const Shop = () => {
   // reset filters
   const handlereset = () => {
     dispatch(resetFilters());
-    alert("clicked");
+    // alert("clicked");
     setPrice("");
     setPrice2("");
     setPrice3("");
@@ -113,14 +116,17 @@ const Shop = () => {
   // add products
   const handleAddProducts = (product) => {
     dispatch(add(product));
-    alert("button is clicked");
+    // alert("button is clicked");
   };
 
+ 
   return (
     <div className="pt-20">
       <p className="text-center p-2 text-2xl aleo flex   items-center justify-center gap-2">
         Start Shopping <HiOutlineShoppingBag className="mt-1 text-[#FFBB38]" />
+        
       </p>
+      {/* <input type='text' placeholder='Search' onChange={handleSearchProducts}  /> */}
 
       <div className="flex py-4  gap-1 px-2">
         <p className="">

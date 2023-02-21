@@ -76,7 +76,10 @@ export const filterSlice = createSlice({
 
     },
 
-    //remove single products
+    //search Products
+    searchProducts: (state,action) => {
+      state.filtered=sampleProdcuts.filter(product =>product.name.toLowerCase().includes(action.payload.toLowerCase()))
+    },
 
    
 
@@ -94,7 +97,7 @@ export const filterSlice = createSlice({
 });
 
 // Export the actions from the filter slice
-export const { filterdiscount,updateDiscount, removeProduct, filterMinMax,setMinvalue,setMaxvalue ,updateCategoryFilter ,filterProducts,filterProductsByPrice350to999, resetFilters,    filterProductsByRating, updateRating , filterProductsByPrice1000to1599, filterProductsByPrice1600to2500,filterProductsByPrice3000} = filterSlice.actions;
+export const { filterdiscount,updateDiscount,searchProducts, removeProduct, filterMinMax,setMinvalue,setMaxvalue ,updateCategoryFilter ,filterProducts,filterProductsByPrice350to999, resetFilters,    filterProductsByRating, updateRating , filterProductsByPrice1000to1599, filterProductsByPrice1600to2500,filterProductsByPrice3000} = filterSlice.actions;
 
 // Export the filter reducer
 export default filterSlice.reducer;
